@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student List</title>
+    <style>
+        .student { border: 1px solid #ccc; padding: 10px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>Student Management System</h1>
+    
+    <h2>Registered Students</h2>
+    <% if (students.length > 0) { %>
+        <% students.forEach(student => { %>
+          <div class="student">
+            <h3>Name: <%= student.name %></h3>
+            <p>Roll No: <%= student.rollNo %></p>
+            <p><strong>Grades:</strong></p>
+            <ul>
+                <% student.grades.forEach(grade => { %>
+                    <li><%= grade.subject %>: <%= grade.score %></li>
+                <% }) %>
+            </ul>
+          </div>
+        <% }); %>
+    <% } else { %>
+        <p>No students found.</p>
+    <% } %>
+</body>
+</html>
